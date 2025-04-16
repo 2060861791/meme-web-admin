@@ -1,4 +1,4 @@
-# Meme网站作品展示与管理系统（前端）
+# Meme网站作品展示与管理系统后台（前端）
 
 ## 🎨 项目简介
 
@@ -60,19 +60,30 @@ npm run build
 npm run preview
 ```
 
-### Docker部署
+---
 
-1. **构建Docker镜像**
+## 🔧 自动化部署（已更新）
 
-```bash
-docker build -t meme-admin-frontend .
-```
+原本项目使用 GitHub Actions 实现自动部署，流程包括：
 
-2. **运行容器**
+1. 构建 Docker 镜像并打包为 `.tar` 文件
+2. 将压缩后的镜像通过 `scp` 上传到服务器
+3. 在服务器解压并运行容器
 
-```bash
-docker run -d -p 80:80 meme-admin-frontend
-```
+⚠️ 由于该方式传输速度较慢，现已废弃。
+
+### ✅ 当前部署方式
+
+现在采用更高效的部署流程：
+
+1. 登录服务器
+2. 直接从仓库 `pull` 最新代码
+3. 使用本地 `Dockerfile` 构建镜像
+4. 运行 Docker 容器
+
+部署过程更加简洁、快速，不再依赖远程打包传输。
+
+---
 
 ## 📁 项目结构
 
